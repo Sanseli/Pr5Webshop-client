@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ManagementComponent } from './management/management.component';
+
 export const appRoutes: Routes = [
     {
         path: 'home',
@@ -10,4 +12,8 @@ export const appRoutes: Routes = [
         redirectTo: '/home',
         pathMatch: 'full'
     },
+    {
+        path: 'management',
+        component: ManagementComponent
+    }
 ]

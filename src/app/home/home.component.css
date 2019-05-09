@@ -30,17 +30,22 @@ img.logo {
 }
 
 img.cardimg {
-    height: 200px;
-    width: 150px;
+    max-height: 70%;
+    max-width: 50%;
     left: 50%;
     right: 50%;
 }
 
-mat-card.employeecards {
+mat-card {
+    position: relative;
     float: left;
-    background-color: darkgray;
-    height: 300px;    
-    width: 185px; 
+}
+
+mat-card.employeecards {
+   
+    background-color: #C9BCA5;
+    height: 30%;    
+    width: 15%; 
     margin: 2%;
 }
 
@@ -48,8 +53,26 @@ div.order {
     display: block;
 }
 
-h2 {
-    font-family: cursive;
+/* h2 {
+    width: 100%;
+} */
+
+.footer { 
+    background-color: #C9BCA5;
+    padding: 2% 5%;
 }
 
+.container { padding: 5%;}
 
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }

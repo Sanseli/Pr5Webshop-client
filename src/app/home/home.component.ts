@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Employee } from '../shared/models';
+import { EmployeeService } from '../shared/employee.service';
+import { elementStylingMap } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-home',
@@ -8,19 +10,22 @@ import { Employee } from '../shared/models';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('about') about: ElementRef;
-  employees: Employee[] = [
-    {id: 1, name: 'Karel', function: 'Bakker', img_url: 'karel.jpg'},
-    {id: 2, name: 'Martine', function: 'Verantwoordelijke verkoop', img_url: 'employee_empty.png'},
-    {id: 3, name: 'Nancy', function: 'Verkoopsmedewerker', img_url: 'employee_empty.png'},
-    {id: 4, name: 'Elke', function: 'Jobstudent verkoop', img_url: 'elke.jpg'},
-    {id: 5, name: 'Lisa', function: 'Jobstudent verkoop', img_url: 'lisa.jpg'},
-    {id: 6, name: 'Yvette', function: 'Jobstudent verkoop', img_url: 'employee_empty.png'},
-    {id: 7, name: 'Romy', function: 'Jobstudent verkoop', img_url: 'employee_empty.png'}
-  ];
+  employees: Employee[];
 
-  constructor() { }
+
+
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.employeeService.getEmployees().subscribe(
+      res => { this.employees = res;
+               this.employees.forEach(element => {
+          if (element.imgUrl === null) {
+            element.imgUrl = 'employee_empty.png';
+          }
+        });
+      });
+      
   }
 
   scroll(el: HTMLElement) {
@@ -29,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   getViewChild(el) {
-    if(el === 'about') {
+    if (el === 'about') {
       return this.about;
     }
   }

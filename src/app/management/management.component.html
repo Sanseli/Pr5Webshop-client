@@ -1,0 +1,14 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+    <mat-form-field>
+      <input matInput placeholder="Naam" id="name" [(ngModel)]="name" name="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Functie" id="position" [(ngModel)]="position" name="position">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="URL" id="img_url" [(ngModel)]="img_url" name="img_url">
+    </mat-form-field>
+    <button mat-flat-button type="submit" color="primary" class="btn btn-success">Verstuur</button>
+  </form>
+</div> 

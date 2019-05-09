@@ -1,8 +1,8 @@
 export interface Employee {
     id?: number;
     name: string;
-    function: string;
-    img_url?: string;
+    position: string;
+    imgUrl?: string;
 }
 
 export interface Product {
@@ -20,8 +20,15 @@ export interface Category {
 
 export interface Order {
     id?: number;
+    orderdate: Date;
+    producten: Array<Product>;
 }
 
 export interface Customer {
-
+    id?: number;
+    firstname: string;
+    lastname: string;
+    email: string;
+    telnr: string;
+    address: string;
 }
