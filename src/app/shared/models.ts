@@ -8,8 +8,8 @@ export interface Employee {
 export interface Product {
     id?: number;
     name: string;
-    category_id: number;
-    img_url?: string;
+    categoryID: number;
+    imgUrl?: string;
     price: number;
 }
 

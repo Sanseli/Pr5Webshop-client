@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Employee } from '../shared/models';
 import { EmployeeService } from '../shared/employee.service';
-import { elementStylingMap } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +10,6 @@ import { elementStylingMap } from '@angular/core/src/render3';
 export class HomeComponent implements OnInit {
   @ViewChild('about') about: ElementRef;
   employees: Employee[];
-
-
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -27,6 +24,7 @@ export class HomeComponent implements OnInit {
       });
       
   }
+  
 
   scroll(el: HTMLElement) {
     console.log(el);

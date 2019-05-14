@@ -6,15 +6,16 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { appRoutes } from './routes';
 
-import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { HomeComponent } from './home/home.component';
-import { ManagementComponent } from './management/management.component';
+import { AppComponent, NavBarComponent, HomeComponent, ManagementComponent,
+  ShopComponent, ShopBroodComponent } from './index';
 
 import { EmployeeService } from './shared/employee.service';
+import { ProductService } from './shared/product.service';
+import { CategoryService } from './shared/category.service';
 
 @NgModule({
   imports:
@@ -24,19 +25,24 @@ import { EmployeeService } from './shared/employee.service';
         RouterModule.forRoot(appRoutes),
         NgbModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        MDBBootstrapModule.forRoot()
     ],
   providers:
     [
       HomeComponent,
-      EmployeeService
+      EmployeeService,
+      ProductService,
+      CategoryService
     ],
   declarations:
     [
         AppComponent,
         NavBarComponent,
         HomeComponent,
-        ManagementComponent
+        ManagementComponent,
+        ShopComponent,
+        ShopBroodComponent
     ],
   bootstrap:
     [
