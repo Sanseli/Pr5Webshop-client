@@ -1,5 +1,12 @@
-<h2>Online bestellen</h2>
+<div class="container">
+  <h2>Online bestellen</h2>
 
-<mat-card (click)="clickBrood">
-  <mat-card-title>Brood</mat-card-title>
-</mat-card>
+  <div class="row">
+    <div class="col-lg-3">
+      <mat-card *ngFor="let category of categories" (click)="clickBrood(category)" >
+        <mat-card-title>{{category.name}}</mat-card-title>
+        <a href="/shop/{{category.name | lowercase}}"><img class="catimg" src="assets/{{category.imgUrl}}"></a> 
+      </mat-card>
+    </div>
+  </div>
+</div>

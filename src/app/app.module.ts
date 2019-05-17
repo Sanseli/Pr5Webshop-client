@@ -5,17 +5,18 @@ import { AppMaterialModule } from './app-material/app-material.module';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { appRoutes } from './routes';
 
 import { AppComponent, NavBarComponent, HomeComponent, ManagementComponent,
-  ShopComponent, ShopBroodComponent } from './index';
+  ShopComponent, ShopCategoryComponent } from './index';
 
 import { EmployeeService } from './shared/employee.service';
 import { ProductService } from './shared/product.service';
 import { CategoryService } from './shared/category.service';
+import { CartService } from './shared/cart.service'
 
 @NgModule({
   imports:
@@ -33,7 +34,8 @@ import { CategoryService } from './shared/category.service';
       HomeComponent,
       EmployeeService,
       ProductService,
-      CategoryService
+      CategoryService,
+      CartService
     ],
   declarations:
     [
@@ -42,7 +44,7 @@ import { CategoryService } from './shared/category.service';
         HomeComponent,
         ManagementComponent,
         ShopComponent,
-        ShopBroodComponent
+        ShopCategoryComponent
     ],
   bootstrap:
     [

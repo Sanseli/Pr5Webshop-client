@@ -3,6 +3,7 @@ import { EmployeeService } from '../shared/employee.service';
 import { Employee, Product, Category } from '../shared/models';
 import { ProductService } from '../shared/product.service';
 import { CategoryService } from '../shared/category.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-management',
@@ -13,7 +14,7 @@ export class ManagementComponent implements OnInit {
   categories: Category[];
 
   constructor(private employeeService: EmployeeService, private productService: ProductService,
-    private categoryService: CategoryService) { }
+  private categoryService: CategoryService, private http: HttpClient) { }
 
   ngOnInit() {
     this.categoryService.getCategories().subscribe(res => {
@@ -27,7 +28,7 @@ export class ManagementComponent implements OnInit {
   }
 
   onSubmitC(form) {
-    this.newCategory(form.name);
+    this.newCategory(form.name, form.img_url);
   }
 
   onSubmitP(form) {
@@ -39,8 +40,8 @@ export class ManagementComponent implements OnInit {
     this.employeeService.postEmployee(employee).subscribe(res => {console.log(res)});
   }
 
-  newCategory(name: string) {
-    const category = {name} as Category;
+  newCategory(name: string, imgUrl: string) {
+    const category = {name, imgUrl} as Category;
     this.categoryService.postCategory(category).subscribe(res => {console.log(res); })
   }
 

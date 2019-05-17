@@ -1,0 +1,5 @@
+<mat-card *ngFor="let product of products" >
+  <mat-card-title>{{product.name}}</mat-card-title>
+  <img mat-card-image src="assets/{{product.imgUrl}}">
+  <button mat-raised-button (click)="addProduct(product)"><mat-icon>shopping_cart</mat-icon> Toevoegen</button>
+</mat-card>

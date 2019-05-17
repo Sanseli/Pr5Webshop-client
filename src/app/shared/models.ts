@@ -16,6 +16,7 @@ export interface Product {
 export interface Category {
     id?: number;
     name: string;
+    imgUrl: string;
 }
 
 export interface Order {
@@ -31,4 +32,9 @@ export interface Customer {
     email: string;
     telnr: string;
     address: string;
+}
+
+export interface Cart {
+    products: Array<Product>;
+    total?: number;
 }

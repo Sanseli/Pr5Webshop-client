@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ManagementComponent } from './management/management.component';
-import { ShopComponent } from './shop/shop.component';
+import { HomeComponent, ManagementComponent, ShopComponent, ShopCategoryComponent } from './index';
 
 export const appRoutes: Routes = [
     {
@@ -15,5 +13,9 @@ export const appRoutes: Routes = [
     {
         path: 'shop',
         component: ShopComponent
+    },
+    {
+        path: 'shop/:category',
+        component: ShopCategoryComponent
     }
 ]

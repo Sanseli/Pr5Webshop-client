@@ -10,6 +10,7 @@ import { CategoryService } from '../shared/category.service';
 })
 export class ShopComponent implements OnInit {
   products: Product[];
+  categories: Category[];
 
   constructor(private productService: ProductService, private categoryService: CategoryService) { 
   }
@@ -18,6 +19,10 @@ export class ShopComponent implements OnInit {
     this.productService.getProducts().subscribe(res => {
       this.products = res;
       console.log(this.products);
+    });
+    this.categoryService.getCategories().subscribe(res => {
+      this.categories = res;
+      console.log(res);
     });
   }
 
