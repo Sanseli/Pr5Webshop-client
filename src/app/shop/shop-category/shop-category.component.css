@@ -1,0 +1,11 @@
+.container {
+    padding-top: 70px; 
+
+}
+
+.wallp {
+    background-image: url('/assets/wallp.jpg'), url('/assets/wallpt.jpg');
+    background-repeat: repeat-x, repeat-x;
+    background-position-y: bottom, top;
+    
+}

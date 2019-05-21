@@ -15,9 +15,21 @@ export class NavBarComponent implements OnInit {
   }
 
   scroll(el) {
-    let element = this.home.getViewChild(el) ;
-    console.log(element);
+    //let element = this.home.getViewChild(el) ;
+   // console.log(element);
     //element.scrollIntoView();
+  }
+
+  toHome(tag?: any) {
+    console.log(tag)
+    let route;
+    if (tag !== undefined) {
+      route = '/home/' + tag;
+    } else {
+      route = '/home';
+    }
+    this.router.navigate([route]);
+
   }
 
   toShop() {

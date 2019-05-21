@@ -1,12 +1,36 @@
-<div class="container">
-  <h2>Online bestellen</h2>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light white  fixed-top " [containerInside]="false">
+  <mdb-navbar-brand><a class="navbar-brand" href="home">Home</a></mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link waves-light" (click)="toHome(about)" mdbWavesEffect>Over ons</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" (click)="toShop()" mdbWavesEffect>Online bestellen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" (click)="toHome(contact)" mdbWavesEffect>Contact</a>
+      </li>
+    </ul>
+      <div class="md-form my-0">
+          <a class="nav-link waves-light" mdbWavesEffect (click)='toCart()'><mat-icon>shopping_cart</mat-icon><span class="sr-only">(current)</span></a>
+        </div>
+  </links>
+</mdb-navbar>
 
-  <div class="row">
-    <div class="col-lg-3">
-      <mat-card *ngFor="let category of categories" (click)="clickBrood(category)" >
-        <mat-card-title>{{category.name}}</mat-card-title>
-        <a href="/shop/{{category.name | lowercase}}"><img class="catimg" src="assets/{{category.imgUrl}}"></a> 
-      </mat-card>
+<div class="wallp">
+  <div class="container">
+    <h2 class="display-4">Online bestellen</h2>
+    <img class="imgdiv" src="assets/divider.png">
+  
+    <div class="row">
+      <div class="col-lg-3" *ngFor="let category of categories">
+        <mat-card  (click)="clickBrood(category)" class="categorycard">
+          <mat-card-title>{{category.name}}</mat-card-title>
+          <a href="/shop/{{category.name | lowercase}}"><img class="catimg" src="assets/categories/{{category.imgUrl}}"></a> 
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>
+

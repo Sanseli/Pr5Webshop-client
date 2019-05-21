@@ -11,12 +11,13 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { appRoutes } from './routes';
 
 import { AppComponent, NavBarComponent, HomeComponent, ManagementComponent,
-  ShopComponent, ShopCategoryComponent } from './index';
+  ShopComponent, ShopCategoryComponent, CartDialogComponent } from './index';
 
 import { EmployeeService } from './shared/employee.service';
 import { ProductService } from './shared/product.service';
 import { CategoryService } from './shared/category.service';
-import { CartService } from './shared/cart.service'
+import { CartService } from './shared/cart.service';
+import { CustomerService } from './shared/customer.service';
 
 @NgModule({
   imports:
@@ -35,7 +36,8 @@ import { CartService } from './shared/cart.service'
       EmployeeService,
       ProductService,
       CategoryService,
-      CartService
+      CartService,
+      CustomerService
     ],
   declarations:
     [
@@ -44,11 +46,16 @@ import { CartService } from './shared/cart.service'
         HomeComponent,
         ManagementComponent,
         ShopComponent,
-        ShopCategoryComponent
+        ShopCategoryComponent,
+        CartDialogComponent
     ],
   bootstrap:
     [
         AppComponent
+    ],
+  entryComponents:
+    [
+      CartDialogComponent
     ]
 })
 export class AppModule { }

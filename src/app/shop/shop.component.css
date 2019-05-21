@@ -1,7 +1,22 @@
 .catimg {
-    width: 150px;
+    width: 200px;
 }
 
 .container {
     background-image: beige;
+    padding-top: 70px; 
+
+}
+
+.wallp {
+    background-image: url('/assets/wallp.jpg'), url('/assets/wallpt.jpg');
+    background-repeat: repeat-x, repeat-x;
+    background-position-y: bottom, top;
+    
+}
+
+.categorycard {
+    width: 250px;
+    height: 300px;
+    margin: 5%;
 }

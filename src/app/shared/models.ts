@@ -32,6 +32,7 @@ export interface Customer {
     email: string;
     telnr: string;
     address: string;
+    password: string;
 }
 
 export interface Cart {

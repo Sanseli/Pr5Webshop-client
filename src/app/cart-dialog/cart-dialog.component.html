@@ -1,0 +1,46 @@
+<mat-card>Te bestellen:</mat-card>
+<div [hidden]="userexists">
+  <button (click)="clickLogin()">Log in</button>
+
+  Of maak een nieuw account:
+  <form (ngSubmit)="onSubmitNew(newform.value)" #newform="ngForm">
+    <mat-form-field>
+      <input matInput placeholder="Voornaam" id="firstname" [(ngModel)]="firstname" name="firstname"required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Achternaam" id="lastname" [(ngModel)]="lastname" name="lastname" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email adres" id="email" [(ngModel)]="email" name="email" required>
+    </mat-form-field>    
+    <mat-form-field>
+      <input matInput placeholder="Telefoon / GSM" id="telnr" [(ngModel)]="telnr" name="telnr" required>
+    </mat-form-field>  
+    <mat-form-field>
+      <input matInput placeholder="Adres" id="address" [(ngModel)]="address" name="address" required>
+    </mat-form-field> 
+    <mat-form-field>
+      <input matInput placeholder="Wachtwoord" id="pass1" [(ngModel)]="pass1" name="pass1" required>
+    </mat-form-field> 
+    <mat-form-field>
+      <input matInput placeholder="Herhaal wachtwoord" id="pass2" [(ngModel)]="pass2" name="pass2" required>
+    </mat-form-field> 
+    <button mat-flat-button type="submit" color="primary" class="btn btn-success">Bestellen</button>
+  </form>
+</div>
+
+<div [hidden]="!userexists">
+    <button (click)="clickNew()">Maak een nieuw account</button>
+  
+    Login:
+    <form (ngSubmit)="onSubmitLogin(loginform.value)" #loginform="ngForm">
+      <mat-form-field>
+        <input matInput placeholder="Email adres" id="email" [(ngModel)]="email" name="email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Wachtwoord" id="pass1" [(ngModel)]="pass1" name="pass1" required>
+      </mat-form-field> 
+      <button mat-flat-button type="submit" color="primary" class="btn btn-success">Bestellen</button>
+    </form>
+  </div>
+

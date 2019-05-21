@@ -39,11 +39,10 @@ img.logo {
     flex: 1 1 auto;
 }
 
-img.cardimg {
-    max-height: 70%;
-    max-width: 50%;
-    left: 50%;
-    right: 50%;
+.img1 {
+    width: 40%;
+    height: auto;
+
 }
 
 mat-card {
@@ -68,11 +67,13 @@ div.order {
 } */
 
 .footer { 
-    background-color: #C9BCA5;
+    background-color: #C69243;
     padding: 2% 5%;
 }
 
-.container { padding: 5%;}
+.container { 
+    padding: 5%;
+}
 
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -88,3 +89,37 @@ div.order {
     }
 
 h2 { position: relative;}
+
+hr { color: #C69243;}
+
+.wallp {
+    background-image: url('/assets/wallp.jpg'), url('/assets/wallpt.jpg');
+    background-repeat: repeat-x, repeat-x;
+    background-position-y: bottom, top;
+    
+}
+
+
+
+
+.para {
+    width: 50%
+}
+
+
+.row {
+    margin: 5% 0%;
+    padding: 0% 2%;
+}
+
+mat-toolbar {
+    position: sticky
+}
+
+.footer {
+    color: white;
+}
+
+.footer.imgdiv {
+    width: 20%
+}

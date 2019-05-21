@@ -1,10 +1,10 @@
 <meta content="width=device-width, height=device-height ,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <mat-toolbar>
   <div class="btnsLeft">
-    <button mat-flat-button>Home</button>
-    <button mat-flat-button (click)="scroll(about)">Over ons</button>
+    <button mat-flat-button (click)="toHome('home')">Home</button>
+    <button mat-flat-button (click)="toHome('about')">Over ons</button>
     <button mat-flat-button (click)="toShop()">Online bestellen</button>
-    <button mat-flat-button> Contact</button>   
+    <button mat-flat-button (click)="toHome('contact')"> Contact</button>   
   </div>
   <span class="spacer"></span>
   <div class="btnsRight">
