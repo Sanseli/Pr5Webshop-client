@@ -42,9 +42,10 @@ export class ShopCategoryComponent implements OnInit {
   } 
 
   addProduct(product) {
-    console.log('hieufhis')
-    console.log(product)
-    this.cartService.addItem(product)
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = true;
+      dialogConfig.data = { product: product };
+      this.dialog.open(CartDialogComponent, dialogConfig)
   }
 
   toHome(tag?: any) {

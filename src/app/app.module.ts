@@ -18,6 +18,7 @@ import { ProductService } from './shared/product.service';
 import { CategoryService } from './shared/category.service';
 import { CartService } from './shared/cart.service';
 import { CustomerService } from './shared/customer.service';
+import { OrderService } from './shared/order.service';
 
 @NgModule({
   imports:
@@ -37,7 +38,8 @@ import { CustomerService } from './shared/customer.service';
       ProductService,
       CategoryService,
       CartService,
-      CustomerService
+      CustomerService,
+      OrderService
     ],
   declarations:
     [

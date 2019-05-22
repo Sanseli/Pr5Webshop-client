@@ -21,8 +21,11 @@ export interface Category {
 
 export interface Order {
     id?: number;
-    orderdate: Date;
-    producten: Array<Product>;
+    orderdate: string;
+    customerID: number;
+    productID: number;
+    amount: number;
+    total: number;
 }
 
 export interface Customer {

@@ -24,10 +24,11 @@ export class NavBarComponent implements OnInit {
     console.log(tag)
     let route;
     if (tag !== undefined) {
-      route = '/home/' + tag;
+      route = '/home#' + tag;
     } else {
       route = '/home';
     }
+    console.log(route)
     this.router.navigate([route]);
 
   }
