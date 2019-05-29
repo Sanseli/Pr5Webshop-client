@@ -1,44 +1,28 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light white  fixed-top " [containerInside]="false">
+  <mdb-navbar-brand><a class="navbar-brand" href="home">Home</a></mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link waves-light" (click)="scroll(about)" mdbWavesEffect>Over ons</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" (click)="toShop()" mdbWavesEffect>Online bestellen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" (click)="scroll(contact)" mdbWavesEffect>Contact</a>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>
+
 <div class="container">
-  <form (ngSubmit)="onSubmitE(eform.value)" #eform="ngForm">
-    <mat-form-field>
-      <input matInput placeholder="Naam" id="name" [(ngModel)]="name" name="name">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Functie" id="position" [(ngModel)]="position" name="position">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="URL" id="img_url" [(ngModel)]="img_url" name="img_url">
-    </mat-form-field>
-    <button mat-flat-button type="submit" color="primary" class="btn btn-success">Verstuur</button>
-  </form>
 
-  <form (ngSubmit)="onSubmitC(cform.value)" #cform="ngForm">
-    <mat-form-field>
-      <input matInput placeholder="Naam" id="name" [(ngModel)]="name" name="name">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="URL" id="img_url" [(ngModel)]="img_url" name="img_url">
-    </mat-form-field>    
-    <button mat-flat-button type="submit" color="primary" class="btn btn-success">Verstuur</button>
-  </form>
+  <button (click)="bestellingenAfdrukken()" mat-raised-button>Bestellingen afdrukken</button>
 
-  <form (ngSubmit)="onSubmitP(pform.value)" #pform="ngForm">
-      <mat-form-field>
-        <input matInput placeholder="Naam" id="name" [(ngModel)]="name" name="name">
-      </mat-form-field>
-      <mat-form-field>
-          <mat-select class="form-control" id="category" required [(ngModel)]="category" name="category" >
-            <div>
-                <mat-option *ngFor="let category of categories" [value]="category">{{category.name}}</mat-option> 
-            </div>  
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Foto URL" id="img_url" [(ngModel)]="img_url" name="img_url">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Prijs" id="price" [(ngModel)]="price" name="price">
-      </mat-form-field>
-      <button mat-flat-button type="submit" color="primary" class="btn btn-success">Verstuur</button>
-    </form>
+  <button (click)="toProducten()" mat-raised-button>Producten beheren</button>
+
+  <button (click)="toWerknemers()" mat-raised-button>Werknemers beheren</button>
+
+
+  
 </div> 

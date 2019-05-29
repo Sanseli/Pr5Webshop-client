@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-import { Product } from './models';
+import { Product, Employee } from './models';
 
 @Injectable()
 export class ProductService {
@@ -19,5 +19,14 @@ export class ProductService {
 
     postProduct(product: Product): Observable<Product> {
         return this.http.post<Product>('api/product', product);
+    }
+
+    deleteProduct(id: number): Observable<{}> {
+        const url = `api/product/${id}`;
+        return this.http.delete(url);
+    }
+
+    updateproduct(product: Product): Observable<Product> {
+        return this.http.put<Product>(`api/product/${product.id}`, product);
     }
 }

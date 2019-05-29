@@ -4,6 +4,9 @@ import { Employee, Product, Category } from '../shared/models';
 import { ProductService } from '../shared/product.service';
 import { CategoryService } from '../shared/category.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { MatBottomSheet } from '@angular/material';
+import { AfdrukkenKeuzelijstComponent } from './afdrukken-keuzelijst/afdrukken-keuzelijst.component';
 
 @Component({
   selector: 'app-management',
@@ -14,7 +17,8 @@ export class ManagementComponent implements OnInit {
   categories: Category[];
 
   constructor(private employeeService: EmployeeService, private productService: ProductService,
-  private categoryService: CategoryService, private http: HttpClient) { }
+              private categoryService: CategoryService, private http: HttpClient, private router: Router, 
+              private bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
     this.categoryService.getCategories().subscribe(res => {
@@ -23,31 +27,33 @@ export class ManagementComponent implements OnInit {
     })
   }
 
-  onSubmitE(form) {
-    this.newEmployee(form.name, form.position, form.img_url);
+  toHome(tag?: any) {
+    console.log(tag)
+    let route;
+    if (tag !== undefined) {
+      route = '/home/' + tag;
+    } else {
+      route = '/home';
+    }
+    this.router.navigate([route]);
+
   }
 
-  onSubmitC(form) {
-    this.newCategory(form.name, form.img_url);
+  toShop() {
+    this.router.navigate(['/shop']);
   }
 
-  onSubmitP(form) {
-    this.newProduct(form.name, form.category.id, form.img_url, form.price);
+  bestellingenAfdrukken(): void {
+    this.bottomSheet.open(AfdrukkenKeuzelijstComponent);
   }
 
-  newEmployee(name: string, position: string, imgUrl: string) {
-    const employee = {name, position, imgUrl} as Employee;
-    this.employeeService.postEmployee(employee).subscribe(res => {console.log(res)});
+  toProducten() {
+    this.router.navigate(['/management/producten']);
   }
 
-  newCategory(name: string, imgUrl: string) {
-    const category = {name, imgUrl} as Category;
-    this.categoryService.postCategory(category).subscribe(res => {console.log(res); })
+  toWerknemers() {
+    this.router.navigate(['/management/werknemers']);
   }
 
-  newProduct(name: string, categoryID: number, imgUrl, price: number) {
-    const product = {name, categoryID, imgUrl, price} as Product;
-    console.log(product);
-    this.productService.postProduct(product).subscribe(res => {console.log(res)})
-  }
+
 }

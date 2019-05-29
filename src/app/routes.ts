@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent, ManagementComponent, ShopComponent, ShopCategoryComponent } from './index';
-import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
+import { HomeComponent, ManagementComponent, ShopComponent, ShopCategoryComponent, ManagementBeheerComponent } from './index';
 
 export const appRoutes: Routes = [
     {
@@ -20,6 +19,10 @@ export const appRoutes: Routes = [
     {
         path: 'management',
         component: ManagementComponent
+    },
+    {
+        path: 'management/:dbtable',
+        component: ManagementBeheerComponent
     },
     {
         path: 'shop',

@@ -1,0 +1,73 @@
+<form (ngSubmit)="onSubmit(form.value)" #form="ngForm" >
+    <div *ngIf="employee">
+        <mat-form-field>
+            <input matInput placeholder="Naam" id="name" [(ngModel)]="em.name" name="name" value="em.name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Functie" id="position" [(ngModel)]="em.position" name="position" value="em.position">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="URL" id="img_url" [(ngModel)]="em.imgUrl" name="img_url">
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="category">
+        <mat-form-field>
+            <input matInput placeholder="Naam" id="name" [(ngModel)]="categoryName" name="name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="URL" id="img_url" [(ngModel)]="categoryImgUrl" name="img_url">
+        </mat-form-field>    
+    </div>
+
+    <div *ngIf="product">
+        <mat-form-field>
+                <input matInput placeholder="Naam" id="name" [(ngModel)]="pr.name" name="name" >
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select class="form-control" id="category" required [(ngModel)]="pr.categoryID" name="category" >
+                <div>
+                    <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option> 
+                </div>  
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Foto URL" id="img_url" [(ngModel)]="pr.imgUrl" name="img_url">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Prijs" id="price" [(ngModel)]="pr.price" name="price">
+        </mat-form-field>
+    </div>
+
+    <button mat-flat-button type="submit" color="primary" class="btn btn-success">Verstuur</button>
+  </form>
+
+ <!-- <form (ngSubmit)="onSubmitC(cform.value)" #cform="ngForm" >
+    <mat-form-field>
+      <input matInput placeholder="Naam" id="name" [(ngModel)]="name" name="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="URL" id="img_url" [(ngModel)]="img_url" name="img_url">
+    </mat-form-field>    
+    <button mat-flat-button type="submit" color="primary" class="btn btn-success">Verstuur</button>
+  </form>
+
+  <form (ngSubmit)="onSubmitP(pform.value)" #pform="ngForm">
+      <mat-form-field>
+        <input matInput placeholder="Naam" id="name" [(ngModel)]="name" name="name" *ngIf="category === product">
+      </mat-form-field>
+      <mat-form-field>
+          <mat-select class="form-control" id="category" required [(ngModel)]="category" name="category" >
+            <div>
+                <mat-option *ngFor="let category of categories" [value]="category">{{category.name}}</mat-option> 
+            </div>  
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Foto URL" id="img_url" [(ngModel)]="img_url" name="img_url">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Prijs" id="price" [(ngModel)]="price" name="price">
+      </mat-form-field>
+      <button mat-flat-button type="submit" color="primary" class="btn btn-success">Verstuur</button>
+    </form>-->

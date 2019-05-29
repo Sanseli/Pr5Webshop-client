@@ -1,0 +1,68 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light white  fixed-top " [containerInside]="false">
+    <mdb-navbar-brand><a class="navbar-brand" href="home">Home</a></mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link waves-light" (click)="scroll(about)" mdbWavesEffect>Over ons</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" (click)="toShop()" mdbWavesEffect>Online bestellen</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" (click)="scroll(contact)" mdbWavesEffect>Contact</a>
+        </li>
+        </ul>
+    </links>
+</mdb-navbar>
+
+<div class="container">
+    <button mat-icon-button (click)="return()"><mat-icon>keyboard_return</mat-icon></button>
+    <div class="sort">
+        <mat-form-field class="filter">
+                <input matInput [(ngModel)]="searchKey" (keyup)="applyFilter()" placeholder="Filter" class="filter" >
+        </mat-form-field>
+    </div>
+
+    <button mat-raised-button (click)="openNew()">Toevoegen</button>
+
+    <div class="table-responsive" flex layout="row">
+        <mat-table [dataSource]="listData" matSort (load)="onLoad()">
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Naam</mat-header-cell>
+            <mat-cell *matCellDef="let data"> {{data.name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="categoryname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Categorie</mat-header-cell>
+            <mat-cell *matCellDef="let data"> {{data.category.name}} </mat-cell>
+        </ng-container>
+            
+        <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Prijs</mat-header-cell>
+            <mat-cell *matCellDef="let data"> €{{data.price}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Functie</mat-header-cell>
+            <mat-cell *matCellDef="let data"> {{data.position}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="imgUrl">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> URL Foto </mat-header-cell>
+            <mat-cell *matCellDef="let data"> {{data.imgUrl}} </mat-cell>
+        </ng-container>       
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let data">
+            <button mat-icon-button (click)="edit(data)"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button (click)="delete(data)"><mat-icon>delete</mat-icon></button>
+            </mat-cell>
+        </ng-container>
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>>
+
+    </mat-table>
+</div>

@@ -77,7 +77,15 @@ export class CartDialogComponent implements OnInit {
     const order = {orderdate, customerID, productID, amount, total} as Order;
 
     console.log(order)
-    this.orderService.postOrder(order).subscribe(res => {console.log(res)});
+    this.orderService.postOrder(order).subscribe(res => {
+      console.log(res)
+      if (res['id'] !== undefined) {
+        alert('Bestelling is geplaatst');
+        this.dialogRef.close();
+      } else {
+        alert('Er is iets misgegaan, probeer opnieuw a.u.b.');
+      }
+    });
   }
 
 }

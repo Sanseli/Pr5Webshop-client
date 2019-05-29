@@ -11,7 +11,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { appRoutes } from './routes';
 
 import { AppComponent, NavBarComponent, HomeComponent, ManagementComponent,
-  ShopComponent, ShopCategoryComponent, CartDialogComponent } from './index';
+  ShopComponent, ShopCategoryComponent, CartDialogComponent, AfdrukkenKeuzelijstComponent,
+  ManagementBeheerComponent, ManagementNewDialogComponent
+} from './index';
 
 import { EmployeeService } from './shared/employee.service';
 import { ProductService } from './shared/product.service';
@@ -49,7 +51,10 @@ import { OrderService } from './shared/order.service';
         ManagementComponent,
         ShopComponent,
         ShopCategoryComponent,
-        CartDialogComponent
+        CartDialogComponent, 
+        AfdrukkenKeuzelijstComponent,
+        ManagementBeheerComponent,
+        ManagementNewDialogComponent
     ],
   bootstrap:
     [
@@ -57,7 +62,9 @@ import { OrderService } from './shared/order.service';
     ],
   entryComponents:
     [
-      CartDialogComponent
+      CartDialogComponent,
+      AfdrukkenKeuzelijstComponent,
+      ManagementNewDialogComponent
     ]
 })
 export class AppModule { }

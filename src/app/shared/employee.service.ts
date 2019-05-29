@@ -21,5 +21,12 @@ export class EmployeeService {
         return this.http.post<Employee>('api/employee', employee);
     }
 
-    
+    deleteEmployee(id: number): Observable<{}> {
+        const url = `api/employee/${id}`;
+        return this.http.delete(url);
+    }
+
+    updateEmployee(employee: Employee): Observable<Employee> {
+        return this.http.put<Employee>(`api/employee/${employee.id}`, employee);
+    }
 }
