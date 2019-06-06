@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { HomeComponent, ManagementComponent, ShopComponent, ShopCategoryComponent, ManagementBeheerComponent } from './index';
+import { HomeComponent, ManagementComponent, ShopComponent, ShopCategoryComponent, ManagementBeheerComponent, LoginComponent, AuthGuardService
+} from './index';
 
 export const appRoutes: Routes = [
     {
@@ -17,12 +18,19 @@ export const appRoutes: Routes = [
 
     },
     {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
         path: 'management',
-        component: ManagementComponent
+        component: ManagementComponent,
+        canActivate: [AuthGuardService]
+
     },
     {
         path: 'management/:dbtable',
-        component: ManagementBeheerComponent
+        component: ManagementBeheerComponent,
+        canActivate: [AuthGuardService]
     },
     {
         path: 'shop',

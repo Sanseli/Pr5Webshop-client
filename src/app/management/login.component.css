@@ -1,0 +1,17 @@
+.full-width { width: 100%; }
+    
+mat-card, h3 { width: 300px;
+    margin-left: 35%;
+    margin-right: 35%;
+    text-align: center;
+    height: auto;}
+
+
+.row { padding: 10%; }
+
+.container {
+    padding-top: 70px; 
+
+}
+
+h3 { padding: 30px 0px;}

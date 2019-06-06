@@ -43,3 +43,10 @@ export interface Cart {
     products: Array<Product>;
     total?: number;
 }
+
+export interface User {
+    id?: number;
+    username: string;
+    password: string;
+    token?: string;
+}

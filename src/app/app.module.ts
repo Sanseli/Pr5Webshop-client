@@ -12,15 +12,11 @@ import { appRoutes } from './routes';
 
 import { AppComponent, NavBarComponent, HomeComponent, ManagementComponent,
   ShopComponent, ShopCategoryComponent, CartDialogComponent, AfdrukkenKeuzelijstComponent,
-  ManagementBeheerComponent, ManagementNewDialogComponent
+  ManagementBeheerComponent, ManagementNewDialogComponent, LoginComponent
 } from './index';
 
-import { EmployeeService } from './shared/employee.service';
-import { ProductService } from './shared/product.service';
-import { CategoryService } from './shared/category.service';
-import { CartService } from './shared/cart.service';
-import { CustomerService } from './shared/customer.service';
-import { OrderService } from './shared/order.service';
+import { EmployeeService, ProductService, CategoryService, CartService, CustomerService, OrderService, UserService, AuthGuardService
+} from './index';
 
 @NgModule({
   imports:
@@ -41,7 +37,9 @@ import { OrderService } from './shared/order.service';
       CategoryService,
       CartService,
       CustomerService,
-      OrderService
+      OrderService,
+      UserService,
+      AuthGuardService
     ],
   declarations:
     [
@@ -51,10 +49,11 @@ import { OrderService } from './shared/order.service';
         ManagementComponent,
         ShopComponent,
         ShopCategoryComponent,
-        CartDialogComponent, 
+        CartDialogComponent,
         AfdrukkenKeuzelijstComponent,
         ManagementBeheerComponent,
-        ManagementNewDialogComponent
+        ManagementNewDialogComponent,
+        LoginComponent
     ],
   bootstrap:
     [

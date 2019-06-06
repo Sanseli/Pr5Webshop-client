@@ -1,0 +1,47 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light white  fixed-top " [containerInside]="false">
+    <mdb-navbar-brand><a class="navbar-brand" href="home">Home</a></mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link waves-light" (click)="scroll(about)" mdbWavesEffect>Over ons</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" (click)="toShop()" mdbWavesEffect>Online bestellen</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" (click)="scroll(contact)" mdbWavesEffect>Contact</a>
+        </li>
+        </ul>
+    </links>
+</mdb-navbar>
+
+<div class="container allign-middle" >
+    <h3>Login werknemer</h3>
+    <mat-card>
+        <div>
+            <div class="row" >
+                <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Gebruikersnaam" id="username" required
+                        [(ngModel)]="username" name="username" #u="ngModel" color="primary">
+                    </mat-form-field>
+    
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Wachtwoord" id="Password" required type="password"
+                        [(ngModel)]="password" name="password" #p="ngModel" color="primary">
+                    </mat-form-field>
+    
+                    <button mat-flat-button type="submit" color="primary" class="btn btn-success">Login</button>
+
+                    <!-- <button mat-flat-button type="submit" color="primary" class="btn btn-success" [disabled]="!form.form.valid">Submit</button> -->
+                    <button mat-flat-button type="button" class="btn btn-cancel" (click)="cancel()">Cancel</button>
+
+                </form>
+                <!--button mat-flat-button type="button" class="btn btn-cancel" (click)="temp()">temp</button-->
+            </div>
+            
+            <a href="/management/reset" style="color:#D4CC4C">Wachtwoord vergeten?</a>
+        </div>
+    </mat-card>
+
+</div>
