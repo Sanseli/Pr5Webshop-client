@@ -1,70 +1,112 @@
-<mat-card>Te bestellen: {{product.name}}</mat-card>
+<div class="container">
 
+  <mat-card>Te bestellen: {{product.name}}</mat-card>
   
-<div [hidden]="userexists">
-  <button (click)="clickLogin()">Log in</button>
+  <mat-tab-group>
+      <mat-tab label="Inloggen"> 
+<!-- 
+      <div [hidden]="userexists">
+        <button (click)="clickLogin()">Log in</button>
 
-  Of maak een nieuw account:
-  <form (ngSubmit)="onSubmitNew(newform.value)" #newform="ngForm">
-    <mat-form-field>
-      <input matInput placeholder="Voornaam" id="firstname" [(ngModel)]="firstname" name="firstname"required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Achternaam" id="lastname" [(ngModel)]="lastname" name="lastname" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Email adres" id="email" [(ngModel)]="email" name="email" required>
-    </mat-form-field>    
-    <mat-form-field>
-      <input matInput placeholder="Telefoon / GSM" id="telnr" [(ngModel)]="telnr" name="telnr" required>
-    </mat-form-field>  
-    <mat-form-field>
-      <input matInput placeholder="Adres" id="address1" [(ngModel)]="address" name="address" required>
-    </mat-form-field> 
-    <mat-form-field>
-      <input matInput placeholder="Wachtwoord" id="password" type="password" [(ngModel)]="pass1" name="pass1" required>
-    </mat-form-field> 
-    <mat-form-field>
-      <input matInput placeholder="Herhaal wachtwoord" id="password2" type="password" [(ngModel)]="pass2" name="pass2" required>
-    </mat-form-field> 
-    Datum afhaling: 
+        Of maak een nieuw account: -->
+        <form (ngSubmit)="onSubmitNew(newform.value)" #newform="ngForm">
 
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Kies een datum" [(ngModel)]="orderdate" name="orderdate">
-      <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
-      <mat-datepicker #picker ></mat-datepicker>
-    </mat-form-field>
-  
-    Aantal: 
-    <mat-form-field class="example-full-width">
-      <input matInput maxlength="3" placeholder="Aantal" value="1" [(ngModel)]="amount" name="amount">
-    </mat-form-field>
-    <button mat-flat-button type="submit" color="primary" class="btn btn-success">Bestellen</button>
-  </form>
+          <div class="row">
+            <mat-form-field class="inputhalf">
+              <input matInput placeholder="Voornaam" id="firstname" [(ngModel)]="firstname" #fname="ngModel" name="firstname" required>
+              <mat-error *ngIf="fname.invalid && (fname.dirty || fname.touched)" color="warn">Geef een geldige voornaam in a.u.b.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="inputhalfright">
+              <input matInput placeholder="Achternaam" id="lastname" [(ngModel)]="lastname" #lname="ngModel" name="lastname" required>
+              <mat-error *ngIf="lname.invalid && (lname.dirty || lname.touched)" color="warn">Geef een geldige achternaam in a.u.b.</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="inputhalf">
+              <input matInput placeholder="Email adres" id="email" [(ngModel)]="email" name="email" required>
+            </mat-form-field>   
+      
+            <mat-form-field class="inputhalfright">
+              <input matInput placeholder="Telefoon / GSM" id="telnr" [(ngModel)]="telnr" name="telnr" required>
+            </mat-form-field>  
+          </div>
+
+          <div class="row">
+            <mat-form-field class="inputfull">
+              <input matInput placeholder="Adres" id="address1" [(ngModel)]="address" name="address" required>
+            </mat-form-field> 
+          </div>
+
+          <div class="row">
+            <mat-form-field class="inputhalf">
+              <input matInput placeholder="Wachtwoord" id="password" type="password" [(ngModel)]="pass1" name="pass1" required>
+            </mat-form-field> 
+
+            <mat-form-field class="inputhalfright">
+              <input matInput placeholder="Herhaal wachtwoord" id="password2" type="password" [(ngModel)]="pass2" name="pass2" required>
+            </mat-form-field> 
+          </div>
+
+          <div class="row">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Kies een datum" [(ngModel)]="orderdate" name="orderdate" required>
+              <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+              <mat-datepicker #picker ></mat-datepicker>
+            </mat-form-field>
+          </div>
+          
+          <div class="row">
+            <mat-form-field class="example-full-width">
+              <input matInput maxlength="3" placeholder="Aantal" value="1" [(ngModel)]="amount" name="amount" type="number" required>
+            </mat-form-field>
+          </div>
+
+          <button mat-flat-button type="submit" color="primary" class="btn btn-success row btnbestellen" [disabled]="!newform.form.valid">Bestellen</button>
+
+        </form>
+      <!-- </div> -->
+    </mat-tab>
+
+    <mat-tab label="Nieuwe klant">
+
+      <!-- <div [hidden]="!userexists">
+        <button (click)="clickNew()">Maak een nieuw account</button>
+
+        Login:-->
+        <form (ngSubmit)="onSubmitLogin(loginform.value)" #loginform="ngForm"> 
+
+          <div class="row">
+            <mat-form-field class="inputfull">
+              <input matInput placeholder="Email adres" id="emaile" [(ngModel)]="email" name="email" required>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="inputfull">
+              <input matInput placeholder="Wachtwoord" id="passe" type="password" [(ngModel)]="pass1" name="pass1" required>
+            </mat-form-field>
+          </div> 
+
+          <div class="row">
+            <mat-form-field>
+              <input matInput [matDatepicker]="pickere" placeholder="Kies een datum" [(ngModel)]="orderdate" name="orderdate" required>
+              <mat-datepicker-toggle matSuffix [for]="pickere"></mat-datepicker-toggle>
+              <mat-datepicker #pickere ></mat-datepicker>
+            </mat-form-field>
+          </div> 
+
+          <div class="row">
+            <mat-form-field class="example-full-width">
+              <input matInput  maxlength="3" placeholder="Aantal" value="1" [(ngModel)]="amount" name="amount" type="number" required>
+            </mat-form-field>
+          </div>
+
+          <button mat-flat-button type="submit" color="primary" class="btn btn-success row btnbestellen"  [disabled]="!loginform.form.valid">Bestellen</button>
+        </form>
+      <!-- </div> -->
+    </mat-tab>
+  </mat-tab-group>
 </div>
-
-<div [hidden]="!userexists">
-  <button (click)="clickNew()">Maak een nieuw account</button>
-
-  Login:
-  <form (ngSubmit)="onSubmitLogin(loginform.value)" #loginform="ngForm">
-    <mat-form-field>
-      <input matInput placeholder="Email adres" id="emaile" [(ngModel)]="email" name="email" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Wachtwoord" id="passe" type="password" [(ngModel)]="pass1" name="pass1" required>
-    </mat-form-field> 
-    <mat-form-field>
-      <input matInput [matDatepicker]="pickere" placeholder="Kies een datum" [(ngModel)]="orderdate" name="orderdate">
-      <mat-datepicker-toggle matSuffix [for]="pickere"></mat-datepicker-toggle>
-      <mat-datepicker #pickere ></mat-datepicker>
-    </mat-form-field> 
-    <mat-form-field class="example-full-width">
-        <input matInput  maxlength="3" placeholder="Aantal" value="1" [(ngModel)]="amount" name="amount">
-      </mat-form-field>
-    <button mat-flat-button type="submit" color="primary" class="btn btn-success">Bestellen</button>
-  </form>
-</div>
-
-
 

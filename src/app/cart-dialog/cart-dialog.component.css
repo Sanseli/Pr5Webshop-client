@@ -1,0 +1,25 @@
+.row { 
+    margin: 2%;
+}
+
+.inputhalf {
+    width: 49%;
+}
+
+.inputhalfright {
+    width: 49%;
+    margin-left: 2%;
+}
+
+.inputfull {
+    width: 100%;
+}
+
+.btnbestellen {
+    width: 100%;
+}
+
+.container {
+    width: 600px;
+    height: 700px;
+}

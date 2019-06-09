@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     onSubmit(formValues) {
         const username = formValues.username; const password = formValues.password;
         const user = {username, password} as User;
+        console.log(user)
 
         this.userService.login(user).subscribe((res) => {
             console.log(res)
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['/management']);
 
             } else {
-
+                alert('Gebruikersnaam en/of wachtwoord is onjuist, probeer opnieuw a.u.b.');
             }
         } );
     }

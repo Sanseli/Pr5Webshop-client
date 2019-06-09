@@ -14,7 +14,7 @@ import { OrderService } from '../shared/order.service';
 })
 export class CartDialogComponent implements OnInit {
   product: Product;
-  userexists = false;
+  // userexists = false;
 
   constructor(public dialogRef: MatDialogRef<CartDialogComponent>, private cartService: CartService,
               private customerService: CustomerService, @Inject(MAT_DIALOG_DATA) public data: any,
@@ -25,13 +25,13 @@ export class CartDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  clickLogin() {
-    this.userexists = true;
-  }
+  // clickLogin() {
+  //   this.userexists = true;
+  // }
 
-  clickNew() {
-    this.userexists = false;
-  }
+  // clickNew() {
+  //   this.userexists = false;
+  // }
 
   onSubmitNew(formValues) {
     let customers: Customer[] = null;
@@ -65,7 +65,7 @@ export class CartDialogComponent implements OnInit {
       if (customer[0].password === formValues.pass1) {
         console.log('success');
 
-        const orderdate = formatDate(formValues.orderdate, 'dd-MM-yyyy', 'en');
+        const orderdate = formatDate(formValues.orderdate, 'yyyy-MM-dd', 'en');
         this.placeOrder(customer[0].id, orderdate, formValues.amount)
       }
     });
